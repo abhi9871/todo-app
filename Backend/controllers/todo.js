@@ -37,7 +37,7 @@ exports.updateTodoItem = async (req, res, next) => {
         todoItem.status = 'done';
         const updatedItem = await todoItem.save();
         console.log(updatedItem);
-        res.status(200);
+        res.status(200).json(updatedItem);
     } catch (err) {
         console.log(err);
     }
@@ -50,7 +50,7 @@ exports.deleteTodoItem = async (req, res, next) => {
         const todoItem = await Todo.findByPk(todoId);
         const deletedItem = await todoItem.destroy();
         console.log("Item Deleted :", deletedItem.toJSON());
-        res.status(200);
+        res.status(200).json(deletedItem);
     } catch (err) {
         console.log(err);
     }

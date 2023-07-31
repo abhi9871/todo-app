@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/todo', todoRoutes);
+app.use(todoRoutes);
 
 sequelize.sync()
 .then(() => {
